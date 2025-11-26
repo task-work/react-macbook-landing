@@ -7,10 +7,13 @@ Source: https://sketchfab.com/3d-models/macbook-pro-m3-16-inch-2024-8e34fc2b3031
 Title: macbook pro M3 16 inch 2024
 */
 
-import * as THREE from 'three'
-import React, { type JSX } from 'react'
-import { useGLTF, useTexture } from '@react-three/drei'
-import type { GLTF } from 'three-stdlib'
+import * as THREE from 'three';
+import { Color } from 'three';
+import { useEffect, type JSX } from 'react';
+import { useGLTF, useTexture } from '@react-three/drei';
+import type { GLTF } from 'three-stdlib';
+import useMacbookStore from '../../store';
+import { noChangeParts } from '../../constants';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -63,9 +66,22 @@ type GLTFResult = GLTF & {
 */
 
 export default function MacbookModel14(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('/models/macbook-14.glb') as unknown as GLTFResult;
+  //节点、材质、场景
+  const { nodes, materials, scene } = useGLTF('/models/macbook-14.glb') as unknown as GLTFResult;
   //应用纹理, 在模型上添加屏幕图像
   const texture = useTexture('/screen.png');
+
+  const { color } = useMacbookStore();
+  useEffect(() => {
+    scene.traverse((child: THREE.Object3D) => {
+      //只有当部件名称不在 "无需更改部分"列表时才修改颜色
+      if(child instanceof THREE.Mesh && !noChangeParts.includes(child.name)) {
+        child.material.color = new Color(color);
+      }
+    });
+
+  }, [color, scene]);
+
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Object_10.geometry} material={materials.PaletteMaterial001} rotation={[Math.PI / 2, 0, 0]} />
