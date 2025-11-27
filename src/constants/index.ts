@@ -1,10 +1,10 @@
 export const navLinks = [
-    {label: 'Store'},
-    {label: 'Mac'},
-    {label: 'iPhone'},
-    {label: 'Watch'},
-    {label: 'Vision'},
-    {label: 'AirPods'}
+    {label: 'Store', link: '#'},
+    {label: 'Mac', link: '#'},
+    {label: 'iPhone', link: '#'},
+    {label: 'Watch', link: '#'},
+    {label: 'Vision', link: '#'},
+    {label: 'AirPods', link: '#'}
 ];
 
 export const noChangeParts = [
@@ -119,4 +119,12 @@ export const featureSequence = [
     { videoPath: "/videos/feature-3.mp4", boxClass: ".box3", delay: 0 },
     { videoPath: "/videos/feature-4.mp4", boxClass: ".box4", delay: 0 },
     { videoPath: "/videos/feature-5.mp4", boxClass: ".box5", delay: 0 },
+];
+
+export const footerLinks = [
+    { label: "Privacy Policy", link: "#" },
+    { label: "Terms of Use", link: "#" },
+    { label: "Sales Policy", link: "#" },
+    { label: "Legal", link: "#" },
+    { label: "Site Map", link: "#" },
 ];
