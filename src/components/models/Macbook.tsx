@@ -67,7 +67,6 @@ export function MacbookModel(props: JSX.IntrinsicElements['group']) {
 
   useEffect(() => {
     scene.traverse((child: THREE.Object3D) => {
-      //只有当部件名称不在 "无需更改部分"列表时才修改颜色
       if(child instanceof THREE.Mesh) {
         child.material.color = new Color(color);
       }

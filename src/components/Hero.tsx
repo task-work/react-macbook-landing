@@ -11,7 +11,7 @@ const Hero = () => {
     <section id="hero">
         <div>
             <h1>MacBook Pro</h1>
-            <img src="/title.png" alt="MackBook Title" />
+            <img src="/title.png" alt="MacBook Title" />
         </div>
         {/* {autoPlay: 自动播放， muted: 静音， playsInline: 不显示额外的设置(音量、快进等)} */}
         <video ref={videoRef} src="/videos/hero.mp4" autoPlay muted playsInline />
