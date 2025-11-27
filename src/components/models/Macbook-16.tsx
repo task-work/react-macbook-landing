@@ -62,7 +62,7 @@ type GLTFResult = GLTF & {
 }
 
 export default function MacbookModel16(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials, scene } = useGLTF('/models/macbook-16.glb')  as unknown as GLTFResult;
+  const { nodes, materials, scene } = useGLTF('/models/macbook-16-transformed.glb')  as unknown as GLTFResult;
   const texture = useTexture('/screen.png');
 
   const { color } = useMacbookStore();
@@ -103,4 +103,4 @@ export default function MacbookModel16(props: JSX.IntrinsicElements['group']) {
   )
 }
 
-useGLTF.preload('/models/macbook-16.glb')
+useGLTF.preload('/models/macbook-16-transformed.glb')
